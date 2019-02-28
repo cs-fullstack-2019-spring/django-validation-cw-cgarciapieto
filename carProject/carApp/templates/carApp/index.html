@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--if an error is raised the error will be displayed below-->
+{{ errors }}
+
+
+<h1>All Cars by Make</h1>
+<!--prints the each car model by MAKE-->
+{% for eachEntry in allEntries %}
+<ol>{{ eachEntry.make }}</ol>
+{% endfor %}
+<!--Form that takes user input -->
+<h1>Here is the form</h1>
+<form action="{% url 'cars' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Submit</button>
+</form>
+</body>
+</html>
